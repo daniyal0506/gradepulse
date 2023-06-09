@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 // Read the JSON data from file
-fs.readFile("public/DPDataJSON/Summer2022.json", (err, data) => {
+fs.readFile("public/DPDataJSON/Summer2020.json", (err, data) => {
   if (err) {
     console.error("Error reading JSON file:", err);
     return;
@@ -30,12 +30,16 @@ fs.readFile("public/DPDataJSON/Summer2022.json", (err, data) => {
     const outputJSON = JSON.stringify(departments, null, 4);
 
     // Write the JSON output to a file
-    fs.writeFile("public/DPDataJSON/Summer2022DEP.json", outputJSON, (err) => {
+    fs.writeFile("public/DPDataJSON/Summer2019DEP.json", outputJSON, (err) => {
       if (err) {
         console.error("Error writing JSON file:", err);
         return;
       }
       console.log("Output JSON file created successfully!");
+
+      // Delete the read file
+      fs.unlinkSync("public/DPDataJSON/Summer2020.json");
+      console.log("Read file deleted successfully!");
     });
   } catch (err) {
     console.error("Error parsing JSON:", err);
