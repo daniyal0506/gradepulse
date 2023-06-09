@@ -1,0 +1,15 @@
+.pie-graph-container {
+    position: relative;
+    margin: auto;
+    height: 70vh;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+.pie-graph {
+    width: 100%;
+    height: 100%;
+}

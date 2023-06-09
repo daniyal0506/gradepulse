@@ -1,0 +1,27 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.bottom-bar {
+  margin-top: auto;
+}
+
+.container-courses {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.dropdown-container {
+  border: 3px solid white; /* Add border */
+  border-radius: 8px; /* Add rounded edges */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+  margin-top: 30px;
+  padding: 10px;
+  max-width: 600px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  background: #7b9c95;
+}

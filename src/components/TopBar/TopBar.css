@@ -1,0 +1,48 @@
+.navbar {
+  background: #353f43; /* Custom background color */
+  padding: 15px; /* Custom padding */
+  width: 100%; /* Fill the entire width */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.navbar-container {
+  width: 25%;
+  display: inline-block;
+  min-width: 300px;
+}
+
+.logo-image {
+  max-height: 100px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.navbar-container img {
+  width: 100%;
+}
+
+.navbar-container a {
+  display: inline-block;
+}
+
+.menu-icon {
+  margin-left: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.2);
+}
+
+.menu-icon i {
+  color: white;
+}
