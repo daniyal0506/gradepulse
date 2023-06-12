@@ -24,7 +24,7 @@ const CourseInfo = () => {
     if (selectedOption) {
       setLoading(true);
       const sanitizedTerm = selectedOption.replace(/\s/g, "");
-      fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}/DEP`)
+      fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
