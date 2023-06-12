@@ -21,7 +21,7 @@ const CourseInfo = () => {
   useEffect(() => {
     if (selectedOption) {
       const sanitizedTerm = selectedOption.replace(/\s/g, "");
-      fetch(`/${sanitizedTerm}`)
+      fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
