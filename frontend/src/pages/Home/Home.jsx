@@ -52,7 +52,7 @@ const Home = () => {
   useEffect(() => {
     if (selectedOption1) {
       const sanitizedTerm = selectedOption1.replace(/\s/g, "");
-      fetch(`${URL}/${sanitizedTerm}`)
+      fetch(`/${sanitizedTerm}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
