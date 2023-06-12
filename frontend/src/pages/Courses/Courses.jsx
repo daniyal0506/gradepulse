@@ -6,12 +6,14 @@ import SideBar from "../../components/SideBar/SideBar";
 import BottomBar from "../../components/BottomBar/BottomBar";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import CourseList from "../../components/CourseList/CourseList";
+import LoadingBar from "../../components/LoadingBar/LoadingBar";
 import "./Courses.css";
 
 const Courses = () => {
   const [data, setData] = useState([]);
   const [selectedOption1, setSelectedOption1] = useState("");
   const [sidebar, setSideBar] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleOptionChange1 = (event) => {
     setData([]);
@@ -19,14 +21,17 @@ const Courses = () => {
 
   useEffect(() => {
     if (selectedOption1) {
+      setLoading(true);
       const sanitizedTerm = selectedOption1.replace(/\s/g, "");
       fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}/DEP`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          setLoading(false);
         })
         .catch((error) => {
           console.error(error);
+          setLoading(false);
         });
     }
   }, [selectedOption1]);
@@ -83,6 +88,7 @@ const Courses = () => {
             onChange={handleOptionChange1}
           />
         </Container>
+        {loading && <LoadingBar className="loading-bar" />}
         <CourseList courses={data} selectedOption={selectedOption1} />
       </div>
 

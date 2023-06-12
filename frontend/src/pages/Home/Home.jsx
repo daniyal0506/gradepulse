@@ -7,6 +7,7 @@ import SideBar from "../../components/SideBar/SideBar";
 import Backdrop from "../../components/BackDrop/BackDrop";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import DropdownClasses from "../../components/Dropdown/DropdownClasses";
+import LoadingBar from "../../components/LoadingBar/LoadingBar";
 import "./Home.css";
 
 const Home = () => {
@@ -48,17 +49,21 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [teacherData, setTeacherData] = useState([]);
   const [sidebar, setSideBar] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (selectedOption1) {
+      setLoading(true);
       const sanitizedTerm = selectedOption1.replace(/\s/g, "");
       fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          setLoading(false);
         })
         .catch((error) => {
           console.error(error);
+          setLoading(false);
         });
     }
   }, [selectedOption1]);
@@ -111,7 +116,7 @@ const Home = () => {
             onChange={handleOptionChange2}
           />
         </Container>
-
+        {loading && <LoadingBar className="loading-bar" />}
         <div className="content-container">
           <TeacherCardGrid teachers={teacherData} />
         </div>

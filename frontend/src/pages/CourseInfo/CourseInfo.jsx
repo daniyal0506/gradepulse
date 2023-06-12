@@ -4,6 +4,7 @@ import TopBar from "../../components/TopBar/TopBar";
 import BottomBar from "../../components/BottomBar/BottomBar";
 import SideBar from "../../components/SideBar/SideBar";
 import Backdrop from "../../components/BackDrop/BackDrop";
+import LoadingBar from "../../components/LoadingBar/LoadingBar";
 import "./CourseInfo.css";
 
 const CourseInfo = () => {
@@ -13,6 +14,7 @@ const CourseInfo = () => {
   const [data, setData] = useState([]);
   const [teacherData, setTeacherData] = useState([]);
   const [sidebar, setSideBar] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toggleSideBar = () => {
     setSideBar((prevState) => !prevState);
@@ -20,14 +22,17 @@ const CourseInfo = () => {
 
   useEffect(() => {
     if (selectedOption) {
+      setLoading(true);
       const sanitizedTerm = selectedOption.replace(/\s/g, "");
-      fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}`)
+      fetch(`https://gradepulse-backend.onrender.com/${sanitizedTerm}/DEP`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          setLoading(false);
         })
         .catch((error) => {
           console.error(error);
+          setLoading(false);
         });
     }
   }, [selectedOption]);
@@ -60,6 +65,7 @@ const CourseInfo = () => {
         <TopBar openSideBar={toggleSideBar} />
         <Backdrop back sidebar={sidebar} closeSideBar={toggleSideBar} />
         <SideBar sidebar={sidebar} toggleSideBar={toggleSideBar} />
+        {loading && <LoadingBar className="loading-bar" />}
         <div className="course-column col-md-4">
           <div className="category-container">
             <h2 className="category-title">{deptData[0].DEPTNAME}</h2>
