@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/gradepulse/static/css/main.064eccdb.css",
+    "main.js": "/gradepulse/static/js/main.a794e318.js",
+    "static/media/about-logo.JPG": "/gradepulse/static/media/about-logo.117b4d51632d05bff493.JPG",
+    "static/media/logo.png": "/gradepulse/static/media/logo.818b3b209e11684a3c6b.png",
+    "static/media/user-logo.png": "/gradepulse/static/media/user-logo.7a6a6c54279a54d1977c.png",
+    "index.html": "/gradepulse/index.html",
+    "main.064eccdb.css.map": "/gradepulse/static/css/main.064eccdb.css.map",
+    "main.a794e318.js.map": "/gradepulse/static/js/main.a794e318.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.064eccdb.css",
+    "static/js/main.a794e318.js"
+  ]
+}
