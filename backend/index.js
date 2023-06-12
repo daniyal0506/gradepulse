@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
+
 app.use(cors());
 
 app.get("/:id", (req, res) => {
