@@ -51,12 +51,14 @@ const CourseInfo = () => {
   const handleOptionChange2 = (option) => {
     const selectedValue = option;
 
-    const filteredTeacherData = data.filter((item) => {
-      const optionValue = `${item.CRSTITLE}`;
-      return optionValue === selectedValue;
-    });
+    if (data.length > 0) {
+      const filteredTeacherData = data.filter((item) => {
+        const optionValue = `${item.CRSTITLE}`;
+        return optionValue === selectedValue;
+      });
 
-    setTeacherData(filteredTeacherData);
+      setTeacherData(filteredTeacherData);
+    }
   };
 
   return (
