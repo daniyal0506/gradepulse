@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
-
 app.use(cors());
 
 app.get("/:id", (req, res) => {
@@ -46,6 +45,6 @@ app.get("/:id/DEP", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
+app.listen(5001, () => {
   console.log("Server started");
 });
